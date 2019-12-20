@@ -1,1 +1,3 @@
-# ADprojectLees
+# 2019 Sof2 AD project
+## 20181659 이소정
+## 20181660 이수아

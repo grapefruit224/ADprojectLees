@@ -16,7 +16,7 @@ class Schedule:
 
 		if airline in airlinedic.keys():
 			self.airlineId = airlinedic[airline]
-		else:
+		else: #선호하는 항공사가 없는 경우
 			self.airlineId = None
 
 		serviceKey = "hT4oaiwQY9nS2NWNXwjSI0MOVJG5%2B%2BZsEWy2QCkO%2FKCeZOJUJH37MmC0%2BrRZBz3yERyY1gZxXvdBOviPC0uRsg%3D%3D"
@@ -42,12 +42,12 @@ class Schedule:
 				self.w_data = rDD["response"]["body"]["items"]["item"]
 
 			except:
-				self.w_data = [{'a':'a'}]
+				self.w_data = [{'a':'a'}] #존재하는 항공편이 없는 경우 에는 item이 존재하지 않아 따로 처리 해주어야 함
 
 	def resultList(self):
 		resultList = []
 		for w in self.w_data:
 			if 'economyCharge' in w.keys() :
-				resultList.append([w['depPlandTime'], w['airlineNm'], w['economyCharge']])
+				resultList.append([w['depPlandTime'], w['airlineNm'], w['economyCharge']]) #리스트에 저장해서 반환. 튜플을 사용하면 출력창에서 출력될 데이터 수정을 하지 못함.
 
 		return resultList
